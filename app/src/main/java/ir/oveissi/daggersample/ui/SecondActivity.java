@@ -15,6 +15,7 @@ import ir.oveissi.daggersample.DaggerSampleApplication;
 import ir.oveissi.daggersample.R;
 import ir.oveissi.daggersample.data.DataCallback;
 import ir.oveissi.daggersample.data.DataManager;
+import ir.oveissi.daggersample.di.ActivityComponent;
 import ir.oveissi.daggersample.pojo.Movie;
 import ir.oveissi.daggersample.utils.EndlessLinearLayoutRecyclerview;
 
@@ -31,7 +32,8 @@ public class SecondActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        DaggerSampleApplication.getComponent().inject(this);
+        ActivityComponent dac= DaggerSampleApplication.getComponent().plus();
+        dac.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
